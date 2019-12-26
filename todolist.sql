@@ -5,6 +5,7 @@ task_performer varchar2(20) not null,
 task_deadline date not null,
 task_status char(20);
 constraint task_id_pk primary key(task_id);
+constraint task_status_ck check(staus_check in('completed','notcompleted');
 };
 insert into todolist(task_number,task_name,task_performer,task_deadline,task_status) values(1,'Open chrome','Sruthi',to_date('18-12-2019','dd-mm-yyyy'),'completed');
 insert into todolist(task_number,task_name,task_performer,task_deadline,task_status) values(2,'Open gmail','Sruthi',to_date('19-12-2019','dd-mm-yyyy'),'notcompleted');
