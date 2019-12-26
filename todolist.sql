@@ -6,7 +6,7 @@ created_date date not null,
 modified_date date not null,
 task_priority number,
 task_deadline date not null,
-task_status char(20);
+task_status char(2);
 constraint task_id_pk primary key(task_id);
 constraint task_status_ck check(task_status in('completed','notcompleted');
 constraint task_deadline_ck check(modified_date < task_deadline);   
