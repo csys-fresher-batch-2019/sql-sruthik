@@ -2,6 +2,9 @@ create table todolist{
 task_number number not null,
 task_name varchar2(20) not null,
 task_performer varchar2(20) not null,
+created_date date,
+modified_date date,
+task_priority number,
 task_deadline date not null,
 task_status char(20);
 constraint task_id_pk primary key(task_id);
