@@ -13,3 +13,4 @@ insert into todolist2(task_no,task_name,deadline,completed_on,modified_on,task_p
 insert into todolist2(task_no,task_name,deadline,completed_on,modified_on,task_priority) values (5,'Send request',to_date('23-12-2019','dd-MM-yyyy'),to_date('22-12-2019','dd-MM-yyyy'),to_date('21-12-2019','dd-MM-yyyy'),5);
 
 select * from todolist2 order by task_priority;
+select count(*) from todolist2;
