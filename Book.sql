@@ -1,8 +1,8 @@
 drop table books;
 create table books(
 book_id number not null,
-book_title varchar(50) not null,
-price number,
+book_title varchar2(50) not null,
+price number not null,
 constraint price_cq check(price >= 0),
 constraint book_id_pk primary key (book_id)
 );
@@ -10,7 +10,8 @@ drop table book_stocks;
 create table book_stocks(
 stock_id number not null,
 book_id number not null,
-quantity number,
+quantity number not null,
+UNIQUE(book_id),
 constraint stock_id_pk primary key(stock_id),
 constraint quantity_cq check(quantity >= 1),
 constraint book_id_fk foreign key(book_id) references books(book_id)
@@ -18,25 +19,29 @@ constraint book_id_fk foreign key(book_id) references books(book_id)
 
 drop table order_items;
 create table order_items(
-order_itemid number not null,
+order_item_id number not null,
 order_id number not null,
 book_id number not null,
-quantity number,
-status varchar(50),
+quantity number not null,
+status varchar2(50)default 'ordered',
 constraint quantity_cq1 check(quantity >=1),
-
+constraint order_id_fk foreign key(order_id) references orders(order_id),
+constraint book_id_fk1 foreign key(book_id) references book_stocks(book_id)
 );
 
 drop table orders;
 create table orders(
 order_id number not null,
-user_name varchar(50)not null,
-total_amount number,
-ordered_date timestamp,
+user_name varchar2(50)not null,
+total_amount number not null,
+ordered_date timestamp not null,
 delivered_date timestamp,
-status varchar(50) default 'ordered',
-  constraint total_amount_cq check(total_amount >= 0)
+status varchar2(50) default 'delivered',
+constraint total_amount_cq check (total_amount > 0),
+constraint order_id_pk primary key(order_id)
 );
+
+
 
 insert into books(book_id,book_title,price)
 values(101,'c',100);
@@ -50,18 +55,18 @@ values(1,101,10);
 insert into book_stocks(stock_id,book_id,quantity)
 values(2,102,5);
 
-insert into order_items(order_itemid,order_id,book_id,quantity,status)
+insert into order_items(order_item_id,order_id,book_id,quantity,status)
 values(1,1,101,3,'ordered');
-insert into order_items(order_itemid,order_id,book_id,quantity,status)
+insert into order_items(order_item_id,order_id,book_id,quantity,status)
 values(2,2,101,5,'ordered');
-insert into order_items(order_itemid,order_id,book_id,quantity,status)
+insert into order_items(order_item_id,order_id,book_id,quantity,status)
 values(3,2,102,3,'ordered');
 
 
 insert into orders(order_id,user_name,total_amount,ordered_date,delivered_date,status)
-values(1,'Sruthi','',sysdate,sysdate+1,'delivered');
+values(1,'Sruthi','300',sysdate,sysdate+1,'delivered');
 insert into orders(order_id,user_name,total_amount,ordered_date,delivered_date,status)
-values(1,'Swaathi','',sysdate,sysdate+1,'delivered');
+values(1,'Swaathi','400',sysdate,sysdate+1,'delivered');
 
 select * from books;
 select * from book_stocks;
