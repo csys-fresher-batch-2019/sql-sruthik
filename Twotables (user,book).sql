@@ -5,7 +5,7 @@ book_name varchar2(50) not null,
 author_name varchar2(50)not null,
 price number not null,
 publisher varchar2(50) not null,
-version number not null,
+version number ,
 category_book varchar2(50)not null,
 active number not null,
 constraint price_cq check(price>=0)
