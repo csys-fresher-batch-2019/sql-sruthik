@@ -33,8 +33,6 @@ values(1,'Sruthi',3,sysdate,sysdate,900,3,'Delivered');
 insert into orders(order_id,user_name,book_id,ordered_date,delivered_date,total_amount,quantity,status)
 values(1,'Sruthi',2,sysdate,sysdate,900,3,'Not available');
 
-Alter table orders
-add comments varchar(50);
 
 select* from books Order by book_id;
 select* from orders;
