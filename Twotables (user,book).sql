@@ -36,11 +36,6 @@ values(1,'Sruthi',2,sysdate,sysdate,900,3,'Not available');
 Alter table orders
 add comments varchar(50);
 
-
-insert into orders(comments)
-values('reporting time is earlier');
-
-
 select* from books Order by book_id;
 select* from orders;
 
