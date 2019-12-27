@@ -23,7 +23,8 @@ order_id number not null,
 book_id number not null,
 quantity number,
 status varchar(50),
-constraint quantity_cq1 check(quantity >=1)
+constraint quantity_cq1 check(quantity >=1),
+
 );
 
 drop table orders;
@@ -33,7 +34,7 @@ user_name varchar(50)not null,
 total_amount number,
 ordered_date timestamp,
 delivered_date timestamp,
-status varchar(50),
+status varchar(50) default 'ordered',
   constraint total_amount_cq check(total_amount >= 0)
 );
 
