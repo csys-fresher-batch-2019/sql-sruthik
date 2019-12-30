@@ -8,7 +8,7 @@
 
 ### Feature 1: List all Titles
 ```sql
-create table titles(title_id number not null,
+create table titles(title_id number,
 title varchar2(255) not null,
 price number not null,
 constraint price_ck check(price >= 0),
