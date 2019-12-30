@@ -4,6 +4,7 @@
 
 ## Features
 * User should be able to view all book titles
+* User should be able to view all publishers
 
 
 ### Feature 1: List all Titles
@@ -19,10 +20,22 @@ values(1,'c',100);
 insert into titles(title_id,title,price)
 values(2,'c++',200);
 insert into titles(title_id,title,price)
-values(3,'java',300);
+values(3,'java',300)
 
+```
+### Feature 2: List all Publishers
+```sql
+create table publishers(
+pub_id number,
+pub_name varchar2(50)not null,
+pub_mail_id varchar2(70),
+pub_ph_no number,
+constraint publishers_pk primary key(pub_id),
+constraint publishers_mail_uk unique(pub_mail_id)
+);
 ```
 Query:
 ```sql
 select * from titles;
+select * from publishers;
 ```
