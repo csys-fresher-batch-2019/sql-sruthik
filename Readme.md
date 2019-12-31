@@ -69,11 +69,11 @@ constraint title_id_pk primary key(title_id),
 constraint pub_id_fk foreign key(pub_id) references publishers(pub_id)
 );
 insert into titles(title_id,pub_id,pub_date,title,price)
-values(1,1,systimestamp-10,'c',100);
+values(1,1,sysdate-10,'c',100);
 insert into titles(title_id,pub_id,pub_date,title,price)
-values(2,2,systimestamp-60,'c++',200);
+values(2,2,sysdate-60,'c++',200);
 insert into titles(title_id,pub_id,pub_date,title,price)
-values(3,3,systimestamp-78,'Java',300);
+values(3,3,sysdate-78,'Java',300);
 
 Query:
 ```sql
