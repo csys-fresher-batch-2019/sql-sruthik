@@ -33,6 +33,13 @@ pub_ph_no number,
 constraint publishers_pk primary key(pub_id),
 constraint publishers_mail_uk unique(pub_mail_id)
 );
+insert into publishers(pub_id,pub_name,pub_mail_id,pub_ph_no)
+values(1,'Microsoft','m@gmail.com',9876533234);
+insert into publishers(pub_id,pub_name,pub_mail_id,pub_ph_no)
+values(2,'ARS','m@gmail.com',8765434567);
+insert into publishers(pub_id,pub_name,pub_mail_id,pub_ph_no)
+values(3,'Suchitra','s@gmail.com',7890613245);
+
 ```
 Query:
 ```sql
