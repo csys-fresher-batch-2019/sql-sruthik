@@ -1,12 +1,5 @@
 # Book Catalog Database
 
-### Table: Titles
-| TITLE_ID | TITLE | PRICE |
-|----------|-------|-------|
-| 1        | C     | 100   |
-| 2        | C++   | 200   |
-| 3        | JAVA  | 300   |
-
 ### Table: Publisher
 | PUB_ID | PUB_NAME  | PUB_MAIL_ID | PUB_PH_NO  |
 |--------|-----------|-------------|------------|
@@ -20,3 +13,19 @@
 | 1         | Steve           | s@gmail.com    | 7689054367   |
 | 2         | Charles Babbage | c@gmail.com    | 9897686890   |
 | 3         | James Gosling   | j@gmail.com    | 8769056743   |
+
+
+### Table: Prefered language
+| PREFERED LANGUAGE |
+|-------------------|
+| Tamil             |
+| English           |
+
+
+### Table: Titles
+| TITLE_ID | TITLE | PRICE |
+|----------|-------|-------|
+| 1        | C     | 100   |
+| 2        | C++   | 200   |
+| 3        | JAVA  | 300   |
+
