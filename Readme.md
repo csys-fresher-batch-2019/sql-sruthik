@@ -44,9 +44,41 @@ insert into authors(author_id,author_name,author_mail_id,author_ph)
 values(3,'James gosling','j@gmail.com',9043723456);
 
 ```
+### Feature 3: List By Prefered Language
+```sql
+drop table languages;
+create table languages(
+prefered_language varchar(100) not null,
+constraint preferedd_language_ck check(prefered_language in('Tamil','English'))
+);
+insert into languages (prefered_language)
+values('Tamil');
+insert into languages (prefered_language)
+values('English');
+```
+### Feature 4: List By Titles
+```sql
+drop table titles;
+create table titles(title_id number,
+pub_id number,
+pub_date date,
+title varchar2(255) not null,
+price number not null,
+constraint price_ck check(price >= 0),
+constraint title_id_pk primary key(title_id),
+constraint pub_id_fk foreign key(pub_id) references publishers(pub_id)
+);
+insert into titles(title_id,pub_id,pub_date,title,price)
+values(1,1,systimestamp-10,'c',100);
+insert into titles(title_id,pub_id,pub_date,title,price)
+values(2,2,systimestamp-60,'c++',200);
+insert into titles(title_id,pub_id,pub_date,title,price)
+values(3,3,systimestamp-78,'Java',300);
 
 Query:
 ```sql
 select * from publishers;
 select * from authors;
+select * from prefered_language;
+select * from titles;
 ```
