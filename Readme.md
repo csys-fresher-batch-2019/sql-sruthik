@@ -3,27 +3,12 @@
 
 
 ## Features
-* User should be able to view all book titles
-* User should be able to view all publishers
+* User should be able to view all Publishers
+* User should be able to view all Authors
+* User should be able to view all Subjects
+* User should be able to view all Titles
 
-
-### Feature 1: List all Titles
-```sql
-create table titles(title_id number,
-title varchar2(255) not null,
-price number not null,
-constraint price_ck check(price >= 0),
-constraint title_id_pk primary key(title_id)
-);
-insert into titles(title_id,title,price)
-values(1,'c',100);
-insert into titles(title_id,title,price)
-values(2,'c++',200);
-insert into titles(title_id,title,price)
-values(3,'java',300)
-
-```
-### Feature 2: List all Publishers
+### Feature 1: List all Publishers
 ```sql
 create table publishers(
 pub_id number,
@@ -41,8 +26,26 @@ insert into publishers(pub_id,pub_name,pub_mail_id,pub_ph_no)
 values(3,'Suchitra','s@gmail.com',7890613245);
 
 ```
+### Feature 2: List all Authors
+```sql
+create table authors(
+author_id number,
+author_name varchar2(100) not null,
+author_mail_id varchar2(100),
+author_ph number,
+constraint author_id_pk primary key(author_id),
+constraint author_mail_id_uq unique(author_mail_id)
+);
+insert into authors(author_id,author_name,author_mail_id,author_ph)
+values(1,'Steve','s@gmail.com',9043723456);
+insert into authors(author_id,author_name,author_mail_id,author_ph)
+values(2,'charles babbage','c@gmail.com',9043723456);
+insert into authors(author_id,author_name,author_mail_id,author_ph)
+values(3,'James gosling','j@gmail.com',9043723456);
+
+```
+
 Query:
 ```sql
-select * from titles;
 select * from publishers;
 ```
