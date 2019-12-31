@@ -74,7 +74,7 @@ insert into titles(title_id,pub_id,pub_date,title,price)
 values(2,2,sysdate-60,'c++',200);
 insert into titles(title_id,pub_id,pub_date,title,price)
 values(3,3,sysdate-78,'Java',300);
-
+```
 Query:
 ```sql
 select * from publishers;
