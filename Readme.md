@@ -48,4 +48,5 @@ values(3,'James gosling','j@gmail.com',9043723456);
 Query:
 ```sql
 select * from publishers;
+select * from authors;
 ```
