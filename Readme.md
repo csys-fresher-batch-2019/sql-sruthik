@@ -7,6 +7,22 @@
 * User should be able to view all Authors
 * User should be able to view all Subjects
 * User should be able to view all Titles
+* To display number of books published in the current year
+* To display publisher id and maximum price for the subject java
+* To display Title id and maximum price
+* To add a Publisher
+* To add a Title
+* To display title id and number of authors of the title
+* To add mail id and phone number for a publisher
+* To display publisher name and number of books published by a publisher
+* To display authors who published more than 1 version
+* To Change the published date for a Particular bookTo display publisher id ,year and number of books published
+* To display title and price for most recent published book
+* To display the title starting with character 'A’
+* To display Subjectwise Titles
+* To display the number of books published by each publisher id
+
+
 
 ### Feature 1: List all Publishers
 ```sql
