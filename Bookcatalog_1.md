@@ -4,7 +4,7 @@
 | PUB_ID | PUB_NAME       | PUB_MAIL_ID       | PUB_PH_NO  |
 |--------|----------------|-------------------|------------|
 | 1      | Jaico          | jaico@gmail.com   | 7896376548 |
-| 2      | Arihant        | arico@gmail.com   | 8976598765 |
+| 2      | Arihant        | arihant@gmail.com   | 8976598765 |
 | 3      | Penguin random | penguin@gmail.com | 9087647655 |
 
 ### Table: Author
