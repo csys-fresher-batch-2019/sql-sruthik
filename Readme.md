@@ -30,6 +30,11 @@ insert into publishers(pub_id,pub_name,pub_mail_id,pub_ph_no)
 values(5,'Rupa','rupa@gmail.com',7098723415);
 
 ```
+Query:
+```sql
+select * from publishers;
+```
+
 ### Feature 2: List all Authors
 ```sql
 create table authors(
@@ -56,8 +61,12 @@ insert into authors(author_id,author_name,author_mail_id,author_ph)
 values(7,'James gosling','gosling@gmail.com',9032456432);
 insert into authors(author_id,author_name,author_mail_id,author_ph)
 values(8,'Charles babbage','charles@gmail.com',7109823678);
-
 ```
+Query:
+```sql
+select * from authors;
+```
+
 ### Feature 3: List By Subjects
 ```sql
 drop table subjects;
@@ -71,6 +80,11 @@ values(1,'Tamil');
 insert into subjects(sub_id,sub_name)
 values(2,'English');
 ```
+Query:
+```sql
+select * from subjects;
+```
+
 ### Feature 4: List By Titles
 ```sql
 create table titles(title_id number,
@@ -111,8 +125,100 @@ values(10,4,7,2,'19-08-2020','Java',2,1000);
 ```
 Query:
 ```sql
-select * from publishers;
-select * from authors;
-select * from subjects;
 select * from titles;
 ```
+### Feature 5:To display number of books published in the current year
+```sql
+select count(*) from titles where to_char(sysdate,'yyyy') = to_char(pub_date,'yyyy');
+```
+### Feature 6:To display publisher id and maximum price for the subject java
+```sql
+select pub_id, max(price)
+from titles
+where title = 'Java'
+group by pub_id;
+```
+
+### Feature 7:To display Title id and maximum price 
+```sql
+select title, max(price)
+from titles
+group by title;
+```
+
+### Feature 8: To add a Publisher and title
+```sql
+insert into publishers(pub_id,pub_name)
+values(6,'Suchitra');
+
+insert into titles(title_id,pub_id,author_id,sub_id,pub_date,title,version_number,price)
+values(11,1,1,1,'25-11-2020','A Secular Agenda',2,500);
+```
+
+### Feature 9: To display title id and number of authors of the title
+```sql
+select author_id, count(*)
+from titles
+group by author_id 
+order by author_id asc;
+```
+
+
+### Feature 10: To add mail id and phone number for a publisher
+```sql
+update publishers set pub_mail_id = 'suchitra@gmail.com',pub_ph_no = '9765321632' where pub_id = 6;
+```
+
+### Feature 11: To display publisher name and number of books published by a publisher
+```sql
+select pub_name, count(*)
+from   publishers p, titles t
+where  p.pub_id = t.pub_id
+group  by pub_name;
+```
+
+### Feature 12: To display authors who published more than 1 version
+```sql
+select t.author_id ,a.author_name 
+from titles t,authors a 
+where a.author_id = t.author_id and t.version_number = 2;
+```
+
+### Feature 13: To Change the published date for a Particular book
+```sql
+update titles 
+set pub_date = '8-09-2020' 
+where title = 'A Suitable boy';
+```
+
+### Feature 14: To display publisher id ,year and number of books published
+```sql
+select pub_id,to_char(pub_date,'yyyy'), count(*)
+from titles
+group by pub_id, to_char(pub_date,'yyyy')
+order by pub_id asc;
+```
+
+### Feature 15: To display title and price for most recent published book
+```sql
+select title,price,pub_date 
+from titles 
+order by pub_date desc;
+```
+
+### Feature 16: To display the title starting with character 'A'
+```sql
+select title,price,version_number from titles where title like '%A%';
+```
+
+### Feature 17: To display Subjectwise Titles
+```sql
+select t.title,s.sub_name from titles t,subjects s where t.sub_id = s.sub_id;
+```
+
+### Feature 18: To display the number of books published by each publisher id
+```sql
+select count(title) from titles group by pub_id;
+```
+
+
